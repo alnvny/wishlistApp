@@ -9,7 +9,7 @@
         </md-card-title>
         <md-card-content layout="row" layout-align="space-between">
             <div class="md-media-xl card-media">
-                <img src="{{item.image}}">
+                <img ng-src="{{item.image}}" alt="product-icon" />
                 <div class="card-content-item">
                     <span ng-if="item.rating!=='empty'">{{item.rating}}</span>
                     <span ng-if="item.rating==='empty'">0</span>
