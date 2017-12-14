@@ -1,5 +1,5 @@
 # wishlistApp
-A wishlist application where you can items
+A wishlist application where you can add items to wish list, search item and view the selected items in the wishlist.
 
 Setup & Run Application prerequisite - Make sure NodeJs is installed in your computer
 
