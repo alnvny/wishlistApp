@@ -1,0 +1,37 @@
+<h4 class="breadcrumbs">Home / Wishlist</h4>
+<div class='md-padding' layout="row" layout-wrap>
+    <md-card ng-if="!wishlist.noItemInWishlist" class="card-style" ng-repeat="item in  wishlist.wishlistItems">
+        <md-card-title>
+            <md-card-title-text class="card-title">
+                <span class="md-headline card-title-text"> Stan Smith {{item.name}}</span>
+                <span class="md-subhead card-title-text">{{item.subTitle}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+            <div class="md-media-xl card-media">
+                <img src="{{item.image}}">
+                <div class="card-content-item">
+                    <span ng-if="item.rating!=='empty'">{{item.rating}}</span>
+                    <span ng-if="item.rating==='empty'">0</span>
+                    <md-icon md-svg-icon="images/ic_star_rate_black_18px.svg"></md-icon>
+                </div>
+                <div class="card-content-item">
+                    <span ng-if="item.reviews!=='empty'">{{item.reviews}}</span>
+                    <span ng-if="item.reviews===''">0</span>
+                    <md-icon md-svg-icon="images/ic_rate_review_black_18px.svg"></md-icon>
+                </div>
+                <div class="card-content-item">
+                    <span>{{item.rate}}</span>
+                    <md-icon md-svg-icon="images/ic_euro_symbol_black_18px.svg"></md-icon>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+
+        <md-card ng-if="wishlist.noItemInWishlist" class="card-style">
+        <md-card-title>
+            <md-card-title-text style="display:inline-block">
+                <span class="md-headline card-title-text"> No Item in wishlist :(</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>

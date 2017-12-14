@@ -1,0 +1,38 @@
+<h4 class="breadcrumbs">Home</h4>
+<div class='md-padding' layout="row" layout-wrap>
+    <md-card class="card-style" ng-repeat="item in  ctrl.productInfo">
+        <md-card-title>
+            <md-card-title-text class="card-title-text">
+                <span class="md-headline card-title-text"> Stan Smith {{item.name}}</span>
+                <md-button ng-if="!item.added" ng-click="ctrl.addToWishlist(item)" class="md-icon-button fav-icon" aria-label="Favorite">
+                    <md-tooltip>Add to wishlist</md-tooltip>
+                    <md-icon class="add-to-icon-selected" md-svg-icon="img/icons/favorite.svg"></md-icon>
+                </md-button>
+                <md-button ng-if="item.added" ng-click="ctrl.removeFromWishlist(item)" class="md-icon-button fav-icon" aria-label="Favorite">
+                    <md-tooltip>Delete from wishlist</md-tooltip>
+                    <md-icon class="add-to-icon"  md-svg-icon="images/ic_delete_black_18px.svg"></md-icon>
+                </md-button>
+                <span class="md-subhead card-title-text" class="md-subhead">{{item.subTitle}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+            <div class="md-media-xl card-media">
+                <img src="{{item.image}}">
+                <div class="card-content-item">
+                    <span ng-if="item.rating!=='empty'">{{item.rating}}</span>
+                    <span ng-if="item.rating==='empty'">0</span>
+                    <md-icon md-svg-icon="images/ic_star_rate_black_18px.svg"></md-icon>
+                </div>
+                <div class="card-content-item">
+                    <span ng-if="item.reviews!=='empty'">{{item.reviews}}</span>
+                    <span ng-if="item.reviews===''">0</span>
+                    <md-icon md-svg-icon="images/ic_rate_review_black_18px.svg"></md-icon>
+                </div>
+                <div class="card-content-item">
+                    <span>{{item.rate}}</span>
+                    <md-icon md-svg-icon="images/ic_euro_symbol_black_18px.svg"></md-icon>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="wishListApp">
+
+<head>
+    <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.5/angular-material.css'>
+    <link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.5/docs.css'>
+    <link rel='stylesheet' href='css/main.css'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.5/angular-material.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.10/angular-ui-router.min.js"></script>
+    <script src="javascript/app.main.controller.js"></script>
+    <script src="javascript/app.routes.js"></script>
+    <script src="javascript/app.service.js"></script>
+    <script src="javascript/app.search.controller.js"></script>
+    <script src="javascript/app.wishlist.controller.js"></script>
+</head>
+
+<body ng-controller="mainController as ctrl">
+    <a class="main-icon" href="#home">
+        <h1 >My Shop</h1></a>
+    <div class="nav-bar">
+        <md-button href="#home" class="md-icon-button btn-icon" aria-label="Favorite">
+            <md-tooltip>Home</md-tooltip>
+            <md-icon class="nav-icon"  md-svg-icon="images/ic_home_black_18px.svg"></md-icon>
+        </md-button>
+        <md-button href="#search" class="md-icon-button btn-icon" aria-label="Favorite">
+            <md-tooltip>Search</md-tooltip>
+            <md-icon class="nav-icon" md-svg-icon="images/ic_search_black_18px.svg"></md-icon>
+        </md-button>
+        <span>{{ctrl.wishlist.length}}</span>
+        <md-button ng-if="ctrl.wishlist.length ===0" ng-click="ctrl.gotToWishlist()"  class="md-icon-button btn-icon-wish" aria-label="Favorite">
+            <md-tooltip>My Wishlist</md-tooltip>
+            <md-icon class="nav-icon"  md-svg-icon="img/icons/favorite.svg"></md-icon>
+        </md-button>
+        <md-button ng-if="ctrl.wishlist.length >0" ng-click="ctrl.gotToWishlist()" class="md-icon-button btn-icon-wish" aria-label="Favorite">
+            <md-tooltip>My Wishlist</md-tooltip>
+            <md-icon class="nav-icon-fav" md-svg-icon="img/icons/favorite.svg"></md-icon>
+        </md-button>
+    </div>
+    <ui-view></ui-view>
+</body>
+
+</html>

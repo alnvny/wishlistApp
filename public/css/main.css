@@ -1,0 +1,61 @@
+.main-icon{
+	color:black;
+	margin-left:20px
+}
+.main-icon h1{
+	display: inline-block;
+}
+.card-style{
+	width: 310px;
+	height:300px;
+}
+.btn-icon{
+	display:inline-block;
+}
+.md-icon-button.btn-icon-wish{
+	display:inline-block;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+.nav-icon{
+	display: inline-block;
+	margin: 0;
+}
+.nav-icon-fav{
+	.nav-icon;
+	color:red;	
+}
+.add-to-icon{
+display: inline-block;
+margin: 0;
+float: right;
+}
+.add-to-icon-selected{
+ .add-to-icon;
+ color:red;
+}
+.md-icon-button.fav-icon{
+display:inline-block;
+float: right;
+}
+.card-title-text{
+    display:inline-block;
+}
+.md-headline.card-title-text{
+	display:inline-block;
+}
+.md-subhead.card-title-text{
+	display:block;
+}
+.nav-bar{
+display:inline-block;
+float:right;
+margin-top: 10px;
+margin-right: 50px;	
+}
+.card-content-item{
+	margin-top: 10px;
+}
+.breadcrumbs{
+	margin-left:20px;
+}
