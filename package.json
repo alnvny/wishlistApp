@@ -1,10 +1,10 @@
 {
   "name": "wishlist",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "an application where you can add your wish list",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Gnana Allan Whinney",
   "license": "ISC",
