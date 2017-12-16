@@ -9,6 +9,11 @@
 	width: 310px;
 	height:300px;
 }
+.card-style-error{
+	color:red;
+	width: 555px;
+	height:300px;
+}
 .btn-icon{
 	display:inline-block;
 }

@@ -1,6 +1,6 @@
 <h4 class="breadcrumbs">Home / Wishlist</h4>
 <div class='md-padding' layout="row" layout-wrap>
-    <md-card ng-if="!wishlist.noItemInWishlist" class="card-style" ng-repeat="item in  wishlist.wishlistItems">
+    <md-card ng-if="!wishlist.noItemInWishlist && !wishlist.apiFailure" class="card-style" ng-repeat="item in  wishlist.wishlistItems">
         <md-card-title>
             <md-card-title-text class="card-title">
                 <span class="md-headline card-title-text"> Stan Smith {{item.name}}</span>
@@ -27,11 +27,18 @@
             </div>
         </md-card-content>
     </md-card>
-
-        <md-card ng-if="wishlist.noItemInWishlist" class="card-style">
+    <md-card ng-if="wishlist.noItemInWishlist && !wishlist.apiFailure" class="card-style">
         <md-card-title>
             <md-card-title-text style="display:inline-block">
                 <span class="md-headline card-title-text"> No Item in wishlist :(</span>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+    <md-card ng-if="wishlist.apiFailure" class="card-style-error">
+        <md-card-title>
+            <md-card-title-text class="card-title-text">
+                <span class="md-headline card-title-text"> API Problem</span>
+                <span class="md-subhead card-title-text" class="md-subhead"><p>{{wishlist.errorMsg}}</p></span>
             </md-card-title-text>
         </md-card-title>
     </md-card>

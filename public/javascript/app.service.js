@@ -13,7 +13,7 @@ app.service('getApiDataService', function($http) {
             $http.get('https://www.adidas.co.uk/api/suggestions/Stans%20Smith').then(function(response) {
                 //var getProducts = [];
                 var getProducts = response.data.products;
-               // getProducts.push(response.data.products);
+                // getProducts.push(response.data.products);
                 var items = [];
                 getProducts.map(function(itm) {
                     var product = itm.url.slice(41, 47);
@@ -22,7 +22,11 @@ app.service('getApiDataService', function($http) {
                     items.push({ name: product });
                 });
                 completeProductInfo = getProducts;
-                callback(completeProductInfo)
+                callback(completeProductInfo);
+            }).catch(function(response) {
+                if (response.status) {
+                    callback(response.status)
+                }
             });
         }
     }
@@ -32,12 +36,11 @@ app.service('getApiDataService', function($http) {
     }
 
     serviceObject.getWishlist = function(callback) {
-        if(addedWishList.length>0){
+        if (addedWishList.length > 0) {
             callback(addedWishList)
-        }
-        else{
+        } else {
             callback('');
-        }       
+        }
     }
     return serviceObject;
 });

@@ -1,11 +1,11 @@
 <h4 class="breadcrumbs">Home / Search</h4>
-<md-autocomplete md-no-cache="true" md-search-text="vm.searchText" md-items="item in vm.querySearch(vm.searchText)" md-selected-item="vm.selectedItem" md-item-text="item.name" md-min-length="0" placeholder="Search with modal name" md-selected-item-change="vm.selectedItemChange(item)">
+<md-autocomplete ng-if="!ctrl.apiFailure" md-no-cache="true" md-search-text="vm.searchText" md-items="item in vm.querySearch(vm.searchText)" md-selected-item="vm.selectedItem" md-item-text="item.name" md-min-length="0" placeholder="Search with modal name" md-selected-item-change="vm.selectedItemChange(item)">
     <md-item-template>
         <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.name}}</span>
     </md-item-template>
 </md-autocomplete>
 <div class='md-padding' layout="row" layout-wrap>
-    <md-card class="card-style" ng-repeat="item in  vm.productInfo | filter:vm.selectedItem.name" md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch="">
+    <md-card ng-if="!ctrl.apiFailure" class="card-style" ng-repeat="item in  vm.productInfo | filter:vm.selectedItem.name" md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch="">
         <md-card-title>
             <md-card-title-text class="card-title-text">
                 <span class="md-headline card-title-text"> Stan Smith {{item.name}}</span>
@@ -32,3 +32,12 @@
             </div>
         </md-card-content>
     </md-card>
+    <md-card ng-if="ctrl.apiFailure" class="card-style-error">
+    <md-card-title>
+        <md-card-title-text class="card-title-text">
+            <span class="md-headline card-title-text"> API Problem</span>
+            <span class="md-subhead card-title-text" class="md-subhead"><p>{{ctrl.errorMsg}}</p></span>
+        </md-card-title-text>
+    </md-card-title>
+</md-card>
+</div>

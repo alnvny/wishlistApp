@@ -1,6 +1,6 @@
 <h4 class="breadcrumbs">Home</h4>
 <div class='md-padding' layout="row" layout-wrap>
-    <md-card class="card-style" ng-repeat="item in  ctrl.productInfo">
+    <md-card ng-if="!ctrl.apiFailure" class="card-style" ng-repeat="item in  ctrl.productInfo">
         <md-card-title>
             <md-card-title-text class="card-title-text">
                 <span class="md-headline card-title-text"> Stan Smith {{item.name}}</span>
@@ -10,7 +10,7 @@
                 </md-button>
                 <md-button ng-if="item.added" ng-click="ctrl.removeFromWishlist(item)" class="md-icon-button fav-icon" aria-label="Favorite">
                     <md-tooltip>Delete from wishlist</md-tooltip>
-                    <md-icon class="add-to-icon"  md-svg-icon="images/ic_delete_black_18px.svg"></md-icon>
+                    <md-icon class="add-to-icon" md-svg-icon="images/ic_delete_black_18px.svg"></md-icon>
                 </md-button>
                 <span class="md-subhead card-title-text" class="md-subhead">{{item.subTitle}}</span>
             </md-card-title-text>
@@ -34,5 +34,13 @@
                 </div>
             </div>
         </md-card-content>
+    </md-card>
+    <md-card ng-if="ctrl.apiFailure" class="card-style-error">
+        <md-card-title>
+            <md-card-title-text class="card-title-text">
+                <span class="md-headline card-title-text"> API Problem</span>
+                <span class="md-subhead card-title-text" class="md-subhead"><p>{{ctrl.errorMsg}}</p></span>
+            </md-card-title-text>
+        </md-card-title>
     </md-card>
 </div>
