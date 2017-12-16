@@ -33,13 +33,9 @@
             <md-icon class="nav-icon" md-svg-icon="images/ic_search_black_18px.svg"></md-icon>
         </md-button>
         <span>{{ctrl.wishlist.length}}</span>
-        <md-button ng-if="ctrl.wishlist.length ===0" ng-click="ctrl.gotToWishlist()"  class="md-icon-button btn-icon-wish" aria-label="Favorite">
+        <md-button  ng-click="ctrl.gotToWishlist()"  class="md-icon-button btn-icon-wish" aria-label="Favorite">
             <md-tooltip>My Wishlist</md-tooltip>
-            <md-icon class="nav-icon"  md-svg-icon="img/icons/favorite.svg"></md-icon>
-        </md-button>
-        <md-button ng-if="ctrl.wishlist.length >0" ng-click="ctrl.gotToWishlist()" class="md-icon-button btn-icon-wish" aria-label="Favorite">
-            <md-tooltip>My Wishlist</md-tooltip>
-            <md-icon class="nav-icon-fav" md-svg-icon="img/icons/favorite.svg"></md-icon>
+            <md-icon class="nav-icon" ng-class="{'nav-icon-fav':ctrl.wishlist.length >0}"  md-svg-icon="img/icons/favorite.svg"></md-icon>
         </md-button>
     </div>
     <ui-view></ui-view>
